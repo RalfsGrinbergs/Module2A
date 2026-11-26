@@ -8,7 +8,16 @@ import java.util.List;
 import java.util.Scanner;
 import java.util.stream.Collectors;
 
+
 public class ConsoleMenu {
+    private static final List<MenuOption> options = List.of(
+            new MenuOption(1, "Add animal"),
+            new MenuOption(2, "List all animals"),
+            new MenuOption(3, "find animals by species"),
+            new MenuOption(4, "List available animals"),
+            new MenuOption(5, "mark animal as adopted"),
+            new MenuOption(0, "Exit")
+    );
     private final Shelter<Animal> shelter;
     private final Scanner scanner = new Scanner(System.in);
 
@@ -50,15 +59,6 @@ public class ConsoleMenu {
                 System.out.println(option.number() + " " + option.label());
             }
         }
-
-        private final List<MenuOption> options = List.of(
-                new MenuOption(1, "Add animal"),
-                new MenuOption(2, "List all animals"),
-                new MenuOption(3, "find animals by species"),
-                new MenuOption(4, "List available animals"),
-                new MenuOption(5, "mark animal as adopted"),
-                new MenuOption(0, "Exit")
-        );
 
     private void addAnimal() {
         while (true) {

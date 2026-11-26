@@ -31,10 +31,16 @@ public class Shelter <T extends Animal>{
     }
 
     public void markAsAdopted(String id){
+        boolean found = false;
         for(Animal animal : animals) {
             if(animal.getId().toString().equals(id)) {
+                found = true;
                 animal.setAdoptionStatus(AdoptionStatus.ADOPTED);
             }
         }
+        if(!found) {
+            System.out.println("Animal with id %s not found".formatted(id));
+        }
     }
-}
+    }
+
